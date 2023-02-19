@@ -1,0 +1,9 @@
+<h2>Homes</h2>
+<div class="home__wrapper">
+  <div class="home" data-test="home" *ngFor="let home of homes$ | async">
+    <h3 class="home__title">{{ home?.title }}</h3>
+    <img class="home__view" [src]="home?.image" alt="home view">
+    <p class="home__location">{{ home?.location }}</p>
+    <app-dialog [home]="home"></app-dialog>
+  </div>
+</div>

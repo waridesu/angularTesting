@@ -1,0 +1,34 @@
+<dialog class="dialog" #dialog>
+  <i class="dialog__close" (click)="toggleDialog(false)">&#x2715;</i>
+  <form *ngIf="checkinForm" [formGroup]="checkinForm">
+  <h2>Book {{ home?.title }}</h2>
+    <p>${{ checkinForm.controls.perNight.value }} per night</p>
+    <div class="dialog__range">
+      <label>
+        check in
+      </label>
+      <input
+        formControlName="checkin"
+        type="date"
+        (change)="setTotalValue()"
+        [min]="currentMinDate()"
+        [max]="checkinForm.controls.checkout.value | minMaxDate : 'max'">
+      <label>
+        check out
+      </label>
+      <input
+        formControlName="checkout"
+        type="date"
+        (change)="setTotalValue()"
+        [min]="checkinForm.controls.checkin.value | minMaxDate : 'min'">
+    </div>
+    <p>Total ${{ checkinForm.controls.total.value }}</p>
+    <button>Book</button>
+    <button (click)="toggleDialog(false)">Cancel</button>
+  </form>
+
+</dialog>
+<div class="dialog__overlay" *ngIf="dialog.open"></div>
+
+<button class="home__book" data-test="book-btn" (click)="toggleDialog(true)">Book</button>
+

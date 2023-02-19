@@ -1,0 +1,52 @@
+.header {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+
+  &, &__menu {
+    border-bottom: 2px solid gray;
+  }
+
+  &__logo {
+    height: 50px;
+  }
+
+  &__search {
+    --x: 50%;
+    --y: 50%;
+
+    position: relative;
+    border: 3px solid transparent;
+    outline: none;
+    background:
+      linear-gradient(#fff, #fff) padding-box,
+      radial-gradient(farthest-corner at var(--x) var(--y), #00C9A7, #845EC2) border-box;
+    border-radius: 8px;
+  }
+
+  &__links {
+    margin-left: auto;
+    display: flex;
+    gap: 12px;
+
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+      color: gray;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+
+    button {
+      padding: 6px 10px;
+      text-transform: uppercase;
+      background-color: transparent;
+      border: 2px solid gray;
+      border-radius: 4px;
+    }
+  }
+}
